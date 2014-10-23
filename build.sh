@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function confln {
-  ln -si "${sourceDir}/$1" ~/.$1
+  ln -si "${sourceDir}/$1" $HOME/.$1
 }
 
 function installMissing {
@@ -15,11 +15,12 @@ function installMissing {
 export -f confln
 export -f installMissing
 
-sourceDir="${HOME}/Dropbox/dev-box"
+export sourceDir="${HOME}/Dropbox/dev-box"
 
-for conf in ${sourceDir}/confs/*; do
+for conf in ${sourceDir}/confs/*.sh; do
   source $conf
 done
 
+unset sourceDir
 unset confln
 unset installMissing
