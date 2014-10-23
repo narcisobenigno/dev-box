@@ -73,6 +73,8 @@ Plugin 'AndrewRadev/splitjoin.vim'
 
 Plugin 'jaywilliams/vim-todo'
 
+Plugin 'begriffs/haskell-vim-now'
+
 call vundle#end()
 filetype plugin indent on
 syntax on

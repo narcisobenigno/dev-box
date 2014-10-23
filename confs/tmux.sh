@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 echo 'Set up tmux...'
+installMissing 'tmux'
 confln 'tmux'
-checkIfCopyPasteIsInstalled=`brew ls --versions reattach-to-user-namespace`
-if [ -z "${checkIfCopyPasteIsInstalled}" ]; then
-  brew upgrade reattach-to-user-namespace
-fi
+installMissing 'reattach-to-user-namespace'
+
 ln -i $HOME/.tmux/tmux.conf $HOME/.tmux.conf
 echo 'tmux has been set up!'
