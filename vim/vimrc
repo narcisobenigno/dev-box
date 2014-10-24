@@ -73,7 +73,14 @@ Plugin 'AndrewRadev/splitjoin.vim'
 
 Plugin 'jaywilliams/vim-todo'
 
-Plugin 'begriffs/haskell-vim-now'
+" Haskell
+Plugin 'raichoo/haskell-vim'
+Plugin 'enomsg/vim-haskellConcealPlus'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
+Plugin 'Twinside/vim-hoogle'
+
+Bundle 'vim-scripts/wombat256.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -84,17 +91,31 @@ for manifest in split(globpath(b:manifestspath, '*.vim'), '\n')
   exec ":source " . manifest
 endfor
 
+try
+  colorscheme wombat256mod
+catch
+endtry
+
+" Match wombat colors in nerd tree
+hi Directory guifg=#8ac6f2
+
+" Searing red very visible cursor
+hi Cursor guibg=red
+
+" Use same color behind concealed unicode characters
+hi clear Conceal
+
+" Don't blink normal mode cursor
+set guicursor=n-v-c:block-Cursor
+set guicursor+=n-v-c:blinkon0
+
+" Set extra options when running in GUI mode
 if has("gui_running")
-  set background=light
-  colorscheme railscasts
-  hi Folded guifg=#333333 guibg=#2B2B2B
-  set guioptions=ace
-  set guicursor+=a:blinkon0 " disable blinking cursor
-  set guifont=Monaco:h13
-else
-  set background=dark
-  let g:solarized_termcolors=256
-  colorscheme solarized
+  set guioptions-=T
+  set guioptions-=e
+  set guitablabel=%M\ %t
 endif
+set t_Co=256
 
-
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
