@@ -74,9 +74,9 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'jaywilliams/vim-todo'
 
 " Haskell
+Plugin 'Shougo/vimproc.vim'
 Plugin 'raichoo/haskell-vim'
 Plugin 'enomsg/vim-haskellConcealPlus'
-Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'Twinside/vim-hoogle'
 
