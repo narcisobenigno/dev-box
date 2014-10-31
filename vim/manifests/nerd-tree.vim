@@ -15,4 +15,4 @@ endfunction
 
 " If nerd tree is closed, find current file, if open, close it
 nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
+nmap <silent> <leader>ot <ESC>:call ToggleFindNerd()<CR>
