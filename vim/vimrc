@@ -82,6 +82,9 @@ Plugin 'Twinside/vim-hoogle'
 
 Bundle 'vim-scripts/wombat256.vim'
 
+" Python
+Plugin 'hdima/python-syntax'
+
 call vundle#end()
 filetype plugin indent on
 syntax on
