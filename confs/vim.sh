@@ -6,7 +6,7 @@ installMissing 'macvim' '--env-std --override-system-vim'
 installMissing 'cabal-install'
 
 confln 'vim'
-ln -i $HOME/.vim/vimrc $HOME/.vimrc
+ln -si $HOME/.vim/vimrc $HOME/.vimrc
 vim +PluginInstall +qall
 
 make --directory="${HOME}/.vim/bundle/vimproc.vim/"

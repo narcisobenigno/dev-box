@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 function confln {
-  ln -si "${sourceDir}/$1" $HOME/.$1
+  origin="${sourceDir}/$1"
+  host="$HOME/.$1"
+  if [ ! -L "$host" ]; then
+    ln -si $origin $host
+  fi
 }
 
 function installMissing {

@@ -5,5 +5,5 @@ installMissing 'tmux'
 confln 'tmux'
 installMissing 'reattach-to-user-namespace'
 
-ln -i $HOME/.tmux/tmux.conf $HOME/.tmux.conf
+ln -si $HOME/.tmux/tmux.conf $HOME/.tmux.conf
 echo 'tmux has been set up!'
