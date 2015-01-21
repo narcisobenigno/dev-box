@@ -1,18 +1,9 @@
-import envrepo
-import envinfo
-import subprocess
+from installation import Installation
 
-print 'Setting up git..'
-
-envrepo.install_missing('git')
-envrepo.confln('git')
-
-subprocess.Popen(
-    "ln -si {} {}".format(
-        envinfo.home('.git/gitconfig'),
-        envinfo.home('.gitconfig')
-        ).split()
-    ).communicate()
-
-
-print 'git has been set up!'
+Installation().install(
+        name = 'git',
+        config = 'gitconfig',
+        pre_reqs = [
+            ['git']
+            ]
+        )

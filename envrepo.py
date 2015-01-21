@@ -5,11 +5,25 @@ import subprocess
 import envinfo
 
 def confln(confname):
-    source = envinfo.source(confname)
-    linkname = envinfo.home("." + confname)
+    if not path.exists(confhome(confname)):
+        os.symlink(confsource(confname), confhome(confname))
 
-    if not path.exists(linkname):
-        os.symlink(source, linkname)
+def dotfileln(installation, confname):
+    subprocess.Popen(
+            "ln -si {} {}".format(
+                confhome(installation) + '/' + confname,
+                envinfo.home(dot(confname))
+                ).split()
+            ).communicate()
+
+def confsource(confname):
+    return envinfo.source(confname)
+
+def confhome(confname):
+    return envinfo.home(dot(confname))
+
+def dot(file):
+    return '.' + file
 
 def brew(command):
     return subprocess.check_output(("brew " + command).split())
