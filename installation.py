@@ -15,7 +15,9 @@ class Installation:
 
     def __post_commands(self, commands):
         for command in commands:
-            subprocess.Popen(command.split()).communicate()
+            if hasattr(command, 'split'):
+                command = command.split()
+            subprocess.Popen(command).communicate()
 
     def __pre_reqs(self, reqs):
         for req in reqs:
