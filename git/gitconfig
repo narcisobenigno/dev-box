@@ -1,5 +1,5 @@
 [user]
-  email = narciso.benigno@locaweb.com.br
+  email = narciso.benigno@gmail.com
   name = Narciso Benigno
 [alias]
   co = checkout
@@ -7,8 +7,8 @@
   ci = commit
   st = status
   l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-	pruneo = remote prune origin
-	unstage = reset HEAD --
+  pruneo = remote prune origin
+  unstage = reset HEAD --
 [color]
   branch = auto
   diff = auto
@@ -38,8 +38,8 @@
 [core]
   editor = /usr/bin/vim
 [merge]
-	ff = false
+  ff = false
 [pull]
-	rebase = true
+  rebase = true
 [grep]
-	fullname = true
+  fullname = true
