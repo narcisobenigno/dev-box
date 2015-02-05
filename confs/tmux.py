@@ -4,6 +4,7 @@ Installation().install(
         name = 'tmux',
         config = 'tmux.conf',
         pre_reqs = [
-            ['tmux']
+            ['tmux'],
+            ['reattach-to-user-namespace']
             ]
         )
