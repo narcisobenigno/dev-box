@@ -7,7 +7,8 @@ Installation().install(
         config = 'vimrc',
         pre_reqs = [
             ['macvim', '--env-std --override-system-vim'],
-            ['cabal-install']
+            ['cabal-install'],
+            ['ag']
             ],
         post_commands = [
             "vim +PluginInstall +qall",
