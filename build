@@ -1,6 +1,0 @@
-#!/usr/bin/env python
-
-import envrepo
-
-for conf in envrepo.confs():
-    execfile(conf)

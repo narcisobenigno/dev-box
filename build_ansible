@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if [ -z $DEVBOX ]; then
+  export DEVBOX="$HOME/Dropbox/dev-box"
+fi
+if [ -z $INVENTORY_FILE ]; then
+  export INVENTORY_FILE="$DEVBOX/hosts"
+fi
+if [ -z $PLAYBOOK ]; then
+  export PLAYBOOK="$DEVBOX/playbook.yml"
+fi
+
+echo 'Checking if brew is installed'
+if type brew 2>/dev/null; then
+  echo 'brew already installed'
+else
+  echo 'Installing brew'
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo 'brew installed'
+fi
+
+echo 'Checking if ansible is installed'
+if ! type ansible 2>/dev/null; then
+  echo 'Installing ansible'
+  brew install ansible
+  echo 'ansible installed'
+else
+  echo 'ansible already installed'
+fi
+ansible-playbook $PLAYBOOK -i $INVENTORY_FILE
+
+unset DEVBOX
+unset INVENTORY_FILE
+unset PLAYBOOK

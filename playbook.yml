@@ -1,0 +1,9 @@
+- hosts: localhost
+  connection: local
+  vars:
+    home: "{{ lookup('env','HOME') }}"
+    dev_box_dir: "{{ lookup('env','DEVBOX') }}"
+  roles:
+  - git
+  - tmux
+  - vim

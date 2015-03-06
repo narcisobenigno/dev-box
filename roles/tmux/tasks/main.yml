@@ -1,0 +1,19 @@
+---
+
+- name: 'Tmux installation'
+  homebrew: name=tmux state=present
+
+- name: 'Link tmux reattach-to-user-namespace'
+  homebrew: name=reattach-to-user-namespace state=present
+
+- name: 'Link tmux dir'
+  file: src="{{ dev_box_dir }}/roles/tmux/files"
+        path="{{ home }}/.tmux"
+        state=link
+        force=yes
+
+- name: 'Link .tmux.conf'
+  file: src="{{ home }}/.tmux/tmux.conf"
+        path="{{ home }}/.tmux.conf"
+        state=link
+        force=yes

@@ -1,3 +1,2 @@
-vim/bundle
-!vim/bundle/Vundle.vim
-*.pyc
+roles/vim/files/bundle
+!roles/vim/files/bundle/Vundle.vim

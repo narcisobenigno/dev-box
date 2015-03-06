@@ -1,0 +1,33 @@
+---
+
+- name: 'Vim installation'
+  homebrew: name=macvim
+            state=present
+            install_options=env-std,override-system-vim
+
+- name: 'cabal-install, ag and reattach-to-user-namespace installation'
+  homebrew: name={{ item }} state=present
+  with_items:
+  - cabal-install
+  - ag
+  - reattach-to-user-namespace
+  - ghc
+  - ctags-exuberant
+
+- name: 'Link tmux dir'
+  file: src="{{ dev_box_dir }}/roles/vim/files"
+        path="{{ home }}/.vim"
+        state=link
+        force=yes
+
+- name: 'Link .tmux.conf'
+  file: src="{{ home }}/.vim/vimrc"
+        path="{{ home }}/.vimrc"
+        state=link
+        force=yes
+
+- name: install vim plugins
+  command: vim +PluginInstall +qall
+
+- name: make vim proc
+  command: "make --directory={{ home }}/.vim/bundle/vimproc.vim/"
