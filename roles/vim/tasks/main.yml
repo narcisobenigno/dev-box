@@ -14,13 +14,13 @@
   - ghc
   - ctags-exuberant
 
-- name: 'Link tmux dir'
+- name: 'Link .vim dir'
   file: src="{{ dev_box_dir }}/roles/vim/files"
         path="{{ home }}/.vim"
         state=link
         force=yes
 
-- name: 'Link .tmux.conf'
+- name: 'Link .vimrc'
   file: src="{{ home }}/.vim/vimrc"
         path="{{ home }}/.vimrc"
         state=link
