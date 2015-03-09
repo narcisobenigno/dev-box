@@ -15,7 +15,7 @@ if type brew 2>/dev/null; then
   echo 'brew already installed'
 else
   echo 'Installing brew'
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  sudo ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo 'brew installed'
 fi
 
