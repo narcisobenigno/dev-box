@@ -6,6 +6,6 @@
   roles:
   - git
   - tmux
-  - vim
+  - { role: vim, tags: ['vim'] }
   - utilities
   - mac-deps
