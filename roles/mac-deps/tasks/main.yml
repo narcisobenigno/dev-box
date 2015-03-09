@@ -1,9 +1,12 @@
 ---
 
-- name: 'App installations'
+- name: 'Mac App installations'
   homebrew_cask: name={{ item }} state=present
   with_items:
   - google-chrome
   - alfred
   - fuze
   - virtualbox
+  - iterm2
+  - caffeine
+  - screenhero
