@@ -7,5 +7,6 @@
   - git
   - tmux
   - { role: vim, tags: ['vim'] }
+  - pass
   - utilities
   - mac-deps

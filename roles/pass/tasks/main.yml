@@ -1,0 +1,10 @@
+---
+
+- name: 'Install pass'
+  homebrew: name=pass state=present
+
+- name: 'retrieve configurations'
+       dest={{ home }}/.password-store
+
+- name: 'retrieve security informations'
+       dest={{ home }}/.gnupg
