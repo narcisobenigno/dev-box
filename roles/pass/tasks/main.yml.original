@@ -5,6 +5,8 @@
 
 - name: 'retrieve configurations'
        dest={{ home }}/.password-store
+       accept_hostkey=yes
 
 - name: 'retrieve security informations'
        dest={{ home }}/.gnupg
+       accept_hostkey=yes
