@@ -10,3 +10,4 @@
     - ruby-install
     - chruby
     - jenv
+    - wget
