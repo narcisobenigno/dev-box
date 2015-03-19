@@ -3,10 +3,10 @@
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
   with_items:
-  - boot2docker
-  - libffi
-  - gdbm
-  - readline
-  - ruby-install
-  - chruby
-  - jenv
+    - boot2docker
+    - libffi
+    - gdbm
+    - readline
+    - ruby-install
+    - chruby
+    - jenv
