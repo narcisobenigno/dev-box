@@ -1,5 +1,7 @@
 ---
 
+- include: ../../utilities/tasks/main.yml
+
 - name: 'Tmux installation'
   homebrew: name=tmux state=present
 
@@ -17,3 +19,6 @@
         path="{{ home }}/.tmux.conf"
         state=link
         force=yes
+
+- name: 'Install powerline-status'
+  pip: name=powerline-status extra_args='--user --install-option="--prefix="'

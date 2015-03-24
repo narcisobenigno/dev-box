@@ -11,3 +11,4 @@
     - chruby
     - jenv
     - wget
+    - python
