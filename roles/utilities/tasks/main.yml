@@ -17,3 +17,5 @@
     - python
     - tmate
     - irssi
+    - emacs
+    - heroku-toolbelt
