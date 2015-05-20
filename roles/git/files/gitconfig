@@ -42,5 +42,5 @@
   rebase = true
 [grep]
   fullname = true
-[credential "https://gitlab.wmxp.com.br"]
+[credential]
 	helper = osxkeychain

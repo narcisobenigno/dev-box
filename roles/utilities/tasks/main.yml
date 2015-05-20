@@ -1,7 +1,10 @@
 ---
 
 - name: 'Tapping'
-  homebrew_tap: tap=nviennot/tmate state=present
+  homebrew_tap: tap={{ item }} state=present
+  with_items:
+    - nviennot/tmate
+    - railwaycat/emacsmacport
 
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
@@ -17,5 +20,4 @@
     - python
     - tmate
     - irssi
-    - emacs
     - heroku-toolbelt
