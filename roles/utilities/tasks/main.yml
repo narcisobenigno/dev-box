@@ -9,7 +9,6 @@
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
   with_items:
-    - boot2docker
     - libffi
     - gdbm
     - readline
@@ -21,3 +20,6 @@
     - tmate
     - irssi
     - heroku-toolbelt
+
+- name: 'Uninstall deprecateds'
+  homebrew: name=boot2docker state=absent
