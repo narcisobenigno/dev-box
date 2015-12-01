@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -d
+
 [ -z "$PRIVATE_GIT_REPO" ] && echo 'Set PRIVATE_GIT_REPO varirable' && exit 1
 
 if [ -z $DEVBOX ]; then
@@ -17,7 +19,7 @@ if type brew 2>/dev/null; then
   echo 'brew already installed'
 else
   echo 'Installing brew'
-  sudo ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew install caskroom/cask/brew-cask
   echo 'brew installed'
 fi
