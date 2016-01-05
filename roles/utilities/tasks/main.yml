@@ -5,6 +5,10 @@
   with_items:
     - nviennot/tmate
     - railwaycat/emacsmacport
+    - caskroom/versions
+
+- name: 'Installing java 7'
+  homebrew_cask: name=java7 state=present
 
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
@@ -20,6 +24,7 @@
     - tmate
     - irssi
     - heroku-toolbelt
+    - maven
 
 - name: 'Uninstall deprecateds'
   homebrew: name=boot2docker state=absent
