@@ -72,7 +72,8 @@ Plugin 'rking/ag.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'AndrewRadev/splitjoin.vim'
 
-Plugin 'jaywilliams/vim-todo'
+" Vim todo
+Plugin 'vitalk/vim-simple-todo'
 
 " Haskell
 Plugin 'Shougo/vimproc.vim'
