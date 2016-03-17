@@ -87,6 +87,9 @@ Bundle 'vim-scripts/wombat256.vim'
 " Python
 Plugin 'hdima/python-syntax'
 
+" Cassandra
+Plugin 'veegee/cql-vim'
+
 call vundle#end()
 filetype plugin indent on
 syntax on
