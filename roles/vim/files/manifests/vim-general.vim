@@ -56,6 +56,8 @@ set wildignore+=tmp/**
 set wildignore+=vendor/bundle/**
 set wildignore+=*.png,*.jpg,*.gif,*.gem,*.o
 
+autocmd FileType *.hbs setl ft=html
+
 autocmd FileType c,h,cpp,hpp setl cindent ts=4 sts=4 sw=4 noet nolist lcs+=tab:\ \
 autocmd FileType asm setl ts=8 sts=8 sw=8 noet lcs+=tab:\ \
 autocmd FileType go setl ts=4 sts=4 sw=4 noet commentstring=\/\/\ %s lcs+=tab:\ \
