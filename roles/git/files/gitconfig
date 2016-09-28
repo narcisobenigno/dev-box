@@ -39,7 +39,5 @@
   rebase = true
 [grep]
   fullname = true
-[credential]
-	helper = osxkeychain
 [rebase]
 	autostash = true

@@ -5,19 +5,21 @@
   with_items:
     - google-chrome
     - alfred
-    - fuze
-    - virtualbox
     - caffeine
     - screenhero
     - slack
     - evernote
     - skype
     - appcleaner
-    - vagrant
     - firefox
     - telegram
     - spotify
-    - eclipse-java
     - sequel-pro
     - emacs
+
+- name: 'Mac App deprecateds'
+  homebrew_cask: name={{ item }} state=absent
+  with_items:
     - dockertoolbox
+    - vagrant
+    - virtualbox

@@ -3,7 +3,6 @@
 - name: 'Tapping'
   homebrew_tap: tap={{ item }} state=present
   with_items:
-    - nviennot/tmate
     - railwaycat/emacsmacport
     - caskroom/versions
 
@@ -23,8 +22,12 @@
     - python
     - tmate
     - irssi
-    - heroku-toolbelt
     - maven
+    - cask
+    - jq
 
 - name: 'Uninstall deprecateds'
   homebrew: name=boot2docker state=absent
+  with_items:
+    - boot2docker
+    - heroku-toolbelt
