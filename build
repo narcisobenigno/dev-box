@@ -32,7 +32,7 @@ if ! type ansible 2>/dev/null; then
 else
   echo 'ansible already installed'
 fi
-ansible-playbook $PLAYBOOK -i $INVENTORY_FILE
+ansible-playbook $PLAYBOOK -i $INVENTORY_FILE $@
 
 unset DEVBOX
 unset INVENTORY_FILE
