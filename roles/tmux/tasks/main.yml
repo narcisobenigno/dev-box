@@ -22,3 +22,6 @@
 
 - name: 'Install powerline-status'
   pip: name=powerline-status extra_args='--user --install-option="--prefix="'
+
+- git: repo=https://github.com/tmux-plugins/tpm
+      dest="{{ home }}/.tmux/plugins/tpm"
