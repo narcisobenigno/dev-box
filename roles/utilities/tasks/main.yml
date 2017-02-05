@@ -7,7 +7,10 @@
     - caskroom/versions
 
 - name: 'Installing java 7'
-  homebrew_cask: name=java7 state=present
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - java7
+    - miniconda
 
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
