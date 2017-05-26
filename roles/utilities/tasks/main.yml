@@ -28,9 +28,3 @@
     - maven
     - cask
     - jq
-
-- name: 'Uninstall deprecateds'
-  homebrew: name=boot2docker state=absent
-  with_items:
-    - boot2docker
-    - heroku-toolbelt

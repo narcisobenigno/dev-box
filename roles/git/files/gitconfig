@@ -1,5 +1,6 @@
 [user]
-  name = Narciso Benigno
+	name = Narciso Benigno
+	email = nbenigno@thoughtworks.com
 [alias]
   co = checkout
   br = branch
@@ -35,6 +36,7 @@
 	editor = /usr/local/bin/vim
 [merge]
   ff = false
+	tool = vimdiff
 [pull]
   rebase = true
 [grep]

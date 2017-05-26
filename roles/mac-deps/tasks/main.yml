@@ -3,7 +3,6 @@
 - name: 'Mac App installations'
   homebrew_cask: name={{ item }} state=present
   with_items:
-    - google-chrome
     - alfred
     - caffeine
     - screenhero
@@ -15,11 +14,9 @@
     - telegram
     - spotify
     - sequel-pro
-    - emacs
+    - dbeaver-community
 
 - name: 'Mac App deprecateds'
   homebrew_cask: name={{ item }} state=absent
   with_items:
-    - dockertoolbox
-    - vagrant
-    - virtualbox
+    - sequel-pro
