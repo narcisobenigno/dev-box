@@ -3,3 +3,4 @@ roles/vim/files/bundle
 *.DS_Store
 roles/vim/files/plugin/
 roles/tmux/files/plugins/
+*.retry

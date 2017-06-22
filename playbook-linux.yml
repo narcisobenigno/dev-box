@@ -1,0 +1,16 @@
+- hosts: localhost
+  connection: local
+  vars:
+          home: "{{ lookup('env','HOME') }}"
+          dev_box_dir: "{{ lookup('env','DEVBOX') }}"
+          private_repo: "{{ lookup('env','PRIVATE_GIT_REPO') }}"
+  roles:
+          - arch/pass
+          # - pass
+          # - git
+          # - tmux
+          # - emacs
+          # - { role: vim, tags: ['vim'] }
+          # - utilities
+          # - mac-deps
+
