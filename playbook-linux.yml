@@ -5,11 +5,11 @@
           dev_box_dir: "{{ lookup('env','DEVBOX') }}"
           private_repo: "{{ lookup('env','PRIVATE_GIT_REPO') }}"
   roles:
-          - arch/pass
+          - arch/utilities
           - arch/git
-          # - tmux
+          - arch/pass
+          - arch/tmux
           # - emacs
           # - { role: vim, tags: ['vim'] }
-          # - utilities
           # - mac-deps
 
