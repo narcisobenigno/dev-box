@@ -14,3 +14,7 @@
   git: repo={{ private_repo }}/.gnupg.git
        dest={{ home }}/.gnupg
        accept_hostkey=yes
+
+- file:
+        path: "{{ home }}/.gnupg/gpg.conf"
+        mode: 0600 

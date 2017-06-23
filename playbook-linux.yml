@@ -6,8 +6,7 @@
           private_repo: "{{ lookup('env','PRIVATE_GIT_REPO') }}"
   roles:
           - arch/pass
-          # - pass
-          # - git
+          - arch/git
           # - tmux
           # - emacs
           # - { role: vim, tags: ['vim'] }
