@@ -3,7 +3,7 @@
 - name: 'Vim installation'
   homebrew: name=macvim
             state=present
-            install_options=env-std,override-system-vim
+            install_options=with-override-system-vim
 
 - name: 'cabal-install, ag and reattach-to-user-namespace installation'
   homebrew: name={{ item }} state=present

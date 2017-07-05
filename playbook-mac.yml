@@ -5,10 +5,10 @@
     dev_box_dir: "{{ lookup('env','DEVBOX') }}"
     private_repo: "{{ lookup('env','PRIVATE_GIT_REPO') }}"
   roles:
-  - mac/pass
-  - mac/git
-  - mac/tmux
-  - mac/emacs
-  - { role: mac/vim, tags: ['vim'] }
-  - mac/utilities
-  - mac/mac-deps
+  - pass
+  - git
+  - tmux
+  - emacs
+  - { role: vim, tags: ['vim'] }
+  - utilities
+  - mac-deps

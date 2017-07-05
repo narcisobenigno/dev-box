@@ -6,12 +6,6 @@
     - railwaycat/emacsmacport
     - caskroom/versions
 
-- name: 'Installing java 7'
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - java7
-    - miniconda
-
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
   with_items:
@@ -20,11 +14,11 @@
     - readline
     - ruby-install
     - chruby
-    - jenv
     - wget
     - python
     - tmate
     - irssi
+    - jenv
     - maven
     - cask
     - jq

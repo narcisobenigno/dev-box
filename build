@@ -8,7 +8,7 @@ function playbook_path () {
 	echo "$devbox/playbook-$so.yml"
 }
 
-[ -z "$PRIVATE_GIT_REPO" ] && echo 'Set PRIVATE_GIT_REPO varirable' && exit 1
+[ -z "$PRIVATE_GIT_REPO" ] && echo 'Set PRIVATE_GIT_REPO variable' && exit 1
 
 if [ -z $DEVBOX ]; then
   export DEVBOX="$HOME/Dropbox/dev-box"
