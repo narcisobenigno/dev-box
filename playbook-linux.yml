@@ -10,6 +10,6 @@
           - arch/pass
           - arch/tmux
           - { role: arch/vim, tags: ['vim'] }
-          # - emacs
+          - arch/emacs
           # - mac-deps
 

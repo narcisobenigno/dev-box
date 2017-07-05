@@ -4,3 +4,5 @@ roles/vim/files/bundle
 roles/vim/files/plugin/
 roles/tmux/files/plugins/
 *.retry
+roles/arch/vim/files/bundle/*
+!roles/arch/vim/files/bundle/Vundle.vim

@@ -27,7 +27,7 @@ Plugin 'scrooloose/syntastic'
 
 Plugin 'tpope/vim-surround'
 
-Plugin 'edsono/vim-matchit'
+Plugin 'adelarsq/vim-matchit'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -128,3 +128,5 @@ set t_Co=256
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+
+let g:powerline_pycmd='py3'
