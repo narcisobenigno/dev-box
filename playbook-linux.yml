@@ -9,7 +9,7 @@
           - arch/git
           - arch/pass
           - arch/tmux
+          - { role: arch/vim, tags: ['vim'] }
           # - emacs
-          # - { role: vim, tags: ['vim'] }
           # - mac-deps
 
