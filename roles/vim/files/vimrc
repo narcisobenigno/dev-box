@@ -35,6 +35,8 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 
+Plugin 'uptech/vim-open-alternate'
+
 Plugin 'vim-scripts/groovy.vim'
 
 Plugin 'Raimondi/delimitMate'
