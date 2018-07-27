@@ -27,6 +27,8 @@ Plugin 'scrooloose/syntastic'
 
 Plugin 'tpope/vim-surround'
 
+Plugin 'tpope/vim-fireplace'
+
 Plugin 'adelarsq/vim-matchit'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'kana/vim-textobj-user'
