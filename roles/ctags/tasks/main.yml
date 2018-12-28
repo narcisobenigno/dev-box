@@ -1,0 +1,12 @@
+---
+
+- name: 'install ctags-exuberant'
+  homebrew:
+    state: present
+    name: 'ctags-exuberant'
+
+- name: 'Link git dir'
+  file: src="{{ dev_box_dir }}/roles/ctags/files/ctags"
+        path="{{ home }}/.ctags"
+        state=link
+        force=yes

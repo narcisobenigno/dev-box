@@ -6,13 +6,9 @@
             install_options=with-override-system-vim
 
 - name: 'cabal-install, ag and reattach-to-user-namespace installation'
-  homebrew: name={{ item }} state=present
-  with_items:
-  - cabal-install
-  - ag
-  - reattach-to-user-namespace
-  - ghc
-  - ctags-exuberant
+  homebrew:
+    state: present
+    name: ['cabal-install', 'ag', 'reattach-to-user-namespace', 'ghc']
 
 - name: 'Link .vim dir'
   file: src="{{ dev_box_dir }}/roles/vim/files"

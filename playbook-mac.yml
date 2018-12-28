@@ -12,3 +12,4 @@
   - { role: vim, tags: ['vim'] }
   - utilities
   - mac-deps
+  - ctags

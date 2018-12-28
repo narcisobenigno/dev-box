@@ -1,22 +1,11 @@
 ---
 
 - name: 'Mac App installations'
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - alfred
-    - caffeine
-    - screenhero
-    - slack
-    - evernote
-    - skype
-    - appcleaner
-    - firefox
-    - telegram
-    - spotify
-    - sequel-pro
-    - dbeaver-community
+  homebrew_cask:
+    name: [ 'alfred', 'caffeine', 'slack', 'evernote', 'skype', 'appcleaner', 'firefox', 'telegram', 'spotify', 'dbeaver-community' ]
+    state: present
 
 - name: 'Mac App deprecateds'
-  homebrew_cask: name={{ item }} state=absent
-  with_items:
-    - sequel-pro
+  homebrew_cask:
+    name: [ 'sequel-pro' ]
+    state: absent
