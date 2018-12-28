@@ -92,8 +92,12 @@ Plugin 'hdima/python-syntax'
 Plugin 'veegee/cql-vim'
 
 call vundle#end()
+set encoding=utf-8
+
 filetype plugin indent on
 syntax on
+
+set laststatus=2
 
 let b:manifestspath=$HOME."/.vim/manifests"
 for manifest in split(globpath(b:manifestspath, '*.vim'), '\n')
@@ -129,4 +133,3 @@ set t_Co=256
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
-let g:powerline_pycmd='py3'

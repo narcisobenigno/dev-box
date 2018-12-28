@@ -11,6 +11,7 @@
   - the_silver_searcher
   - ghc
   - ctags
+  - powerline-fonts
 
 - name: 'Link .vim dir'
   file: src="{{ dev_box_dir }}/roles/arch/vim/files"

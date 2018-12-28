@@ -32,7 +32,6 @@ set hlsearch
 set incsearch
 set list
 set listchars=eol:$,trail:·,tab:>·
-set laststatus=2
 
 set autoindent
 set smartindent
