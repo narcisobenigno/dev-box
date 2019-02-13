@@ -1,1 +1,1 @@
-vnoremap // y/<C-R>"<CR>"
+vnoremap // y/<C-R>"<CR>

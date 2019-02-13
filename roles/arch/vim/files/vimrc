@@ -76,20 +76,15 @@ Plugin 'AndrewRadev/splitjoin.vim'
 " Vim todo
 Plugin 'vitalk/vim-simple-todo'
 
-" Haskell
-Plugin 'Shougo/vimproc.vim'
-Plugin 'raichoo/haskell-vim'
-Plugin 'enomsg/vim-haskellConcealPlus'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'Twinside/vim-hoogle'
-
 Bundle 'vim-scripts/wombat256.vim'
 
 " Python
 Plugin 'hdima/python-syntax'
 
-" Cassandra
-Plugin 'veegee/cql-vim'
+" Typescript
+Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'HerringtonDarkholme/yats.vim'
 
 call vundle#end()
 set encoding=utf-8
