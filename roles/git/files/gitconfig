@@ -13,15 +13,11 @@
   branch = auto
   diff = auto
   status = auto
+  show = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
 [color "status"]
   added = yellow
   changed = green
@@ -33,13 +29,13 @@
 [rerere]
   enabled = true
 [core]
-	editor = /usr/local/bin/vim
+  editor = /usr/local/bin/vim
 [merge]
   ff = false
-	tool = vimdiff
+  tool = vimdiff
 [pull]
   rebase = true
 [grep]
   fullname = true
 [rebase]
-	autostash = true
+  autostash = true
