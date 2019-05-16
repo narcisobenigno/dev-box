@@ -43,6 +43,7 @@ set shiftwidth=2
 set nowrap
 set textwidth=80
 set linebreak
+set cursorline
 
 set foldenable
 set foldmethod=expr
