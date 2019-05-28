@@ -17,8 +17,6 @@ call minpac#add('tpope/vim-fugitive')
 
 call minpac#add('vim-scripts/Gundo')
 
-call minpac#add('vim-scripts/bufkill.vim')
-
 call minpac#add('scrooloose/syntastic')
 
 call minpac#add('tpope/vim-surround')
@@ -67,7 +65,6 @@ call minpac#add('scrooloose/nerdtree')
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('slim-template/vim-slim')
 call minpac#add('rking/ag.vim')
-call minpac#add('jeetsukumaran/vim-buffergator')
 call minpac#add('AndrewRadev/splitjoin.vim')
 
 " Haskell
