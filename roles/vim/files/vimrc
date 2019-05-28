@@ -48,6 +48,8 @@ call minpac#add('othree/html5.vim')
 
 call minpac#add('isRuslan/vim-es6')
 call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('prettier/vim-prettier', { 'type': 'opt', 'do': '!yarn install' })
 call minpac#add('kchmck/vim-coffee-script')
 
 call minpac#add('altercation/vim-colors-solarized')
