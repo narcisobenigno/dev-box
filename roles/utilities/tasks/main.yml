@@ -1,17 +1,19 @@
 ---
 
 - name: 'Utilities installation'
-  homebrew: name={{ item }} state=present
-  with_items:
-    - libffi
-    - gdbm
-    - readline
-    - ruby-install
-    - chruby
-    - wget
-    - python
-    - irssi
-    - jenv
-    - cask
-    - jq
-    - go
+  homebrew_cask:
+    name: [
+        'libffi',
+        'gdbm',
+        'readline',
+        'ruby-install',
+        'chruby',
+        'wget',
+        'python',
+        'irssi',
+        'jenv',
+        'cask',
+        'jq',
+        'go'
+      ]
+    state: present
