@@ -6,3 +6,6 @@ roles/tmux/files/plugins/
 *.retry
 roles/arch/vim/files/bundle/*
 !roles/arch/vim/files/bundle/Vundle.vim
+roles/vim/files/pack/minpac/start/*
+roles/vim/files/pack/minpac/opt/*
+!roles/vim/files/pack/minpac/opt/minpac

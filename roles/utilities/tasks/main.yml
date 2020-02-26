@@ -1,11 +1,5 @@
 ---
 
-- name: 'Tapping'
-  homebrew_tap: tap={{ item }} state=present
-  with_items:
-    - railwaycat/emacsmacport
-    - caskroom/versions
-
 - name: 'Utilities installation'
   homebrew: name={{ item }} state=present
   with_items:
@@ -16,9 +10,8 @@
     - chruby
     - wget
     - python
-    - tmate
     - irssi
     - jenv
-    - maven
     - cask
     - jq
+    - go

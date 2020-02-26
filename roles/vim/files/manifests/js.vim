@@ -1,5 +1,5 @@
-set wildmenu
-
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
-set wildignore+=*.pdf,*.psd
-set wildignore+=node_modules/*,bower_components/*
+augroup PrettierCMDs
+autocmd! FileType javascript,json,typescript packadd vim-prettier
+autocmd BufWritePre *.js,*.jsx PrettierAsync
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+augroup END

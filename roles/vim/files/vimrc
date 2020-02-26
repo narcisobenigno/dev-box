@@ -48,9 +48,9 @@ call minpac#add('isRuslan/vim-es6')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('prettier/vim-prettier', { 'type': 'opt', 'do': '!yarn install' })
+call minpac#add('ternjs/tern_for_vim', { 'type': 'opt', 'do': '!npm install' })
 call minpac#add('kchmck/vim-coffee-script')
 
-call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('jpo/vim-railscasts-theme')
 
 call minpac#add('tpope/vim-commentary')
@@ -67,6 +67,9 @@ call minpac#add('slim-template/vim-slim')
 call minpac#add('rking/ag.vim')
 call minpac#add('AndrewRadev/splitjoin.vim')
 
+" Golang
+call minpac#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })
+
 " Haskell
 call minpac#add('Shougo/vimproc.vim')
 call minpac#add('raichoo/haskell-vim')
@@ -75,6 +78,7 @@ call minpac#add('eagletmt/neco-ghc')
 call minpac#add('Twinside/vim-hoogle')
 
 call minpac#add('vim-scripts/wombat256.vim')
+call minpac#add('fatih/vim-go')
 
 let b:manifestspath=$HOME."/.vim/manifests"
 for manifest in split(globpath(b:manifestspath, '*.vim'), '\n')
@@ -89,14 +93,6 @@ inoremap <C-h>       <Left> " Left without esc
 inoremap <C-l>       <Right> " Right without esc
 
 let g:ragtag_global_maps = 1
-
-try
-  colorscheme wombat256mod
-catch
-endtry
-
-" Match wombat colors in nerd tree
-hi Directory guifg=#8ac6f2
 
 " Searing red very visible cursor
 hi Cursor guibg=red
@@ -114,7 +110,10 @@ if has("gui_running")
   set guioptions-=e
   set guitablabel=%M\ %t
 endif
-set t_Co=256
+
+syntax enable
+set background=dark
+colorscheme wombat256mod
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
