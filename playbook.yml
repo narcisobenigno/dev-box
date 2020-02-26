@@ -8,7 +8,6 @@
   - pass
   - git
   - tmux
-  - emacs
   - { role: vim, tags: ['vim'] }
   - utilities
   - mac-deps

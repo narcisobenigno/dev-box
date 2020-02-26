@@ -3,9 +3,8 @@
 set -e
 
 function playbook_path () {
-	devbox=$1
-	so=$2
-	echo "$devbox/playbook-$so.yml"
+  devbox=$1
+  echo "$devbox/playbook.yml"
 }
 
 [ -z "$PRIVATE_GIT_REPO" ] && echo 'Set PRIVATE_GIT_REPO variable' && exit 1
@@ -17,42 +16,29 @@ if [ -z $INVENTORY_FILE ]; then
   export INVENTORY_FILE="$DEVBOX/hosts"
 fi
 
-if [[ `uname` == 'Darwin' ]]; then
-	if [ -z $PLAYBOOK ]; then
-		export PLAYBOOK=$(playbook_path $DEVBOX 'mac')
-	fi
-
-	echo 'Checking if brew is installed'
-	if type brew 2>/dev/null; then
-		echo 'brew already installed'
-	else
-		echo 'Installing brew'
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		brew install caskroom/cask/brew-cask
-		echo 'brew installed'
-	fi
-
-	echo 'Checking if ansible is installed'
-	if ! type ansible 2>/dev/null; then
-		echo 'Installing ansible'
-		brew install ansible
-		echo 'ansible installed'
-	else
-		echo 'ansible already installed'
-	fi
-else
-	if [ -z $PLAYBOOK ]; then
-		export PLAYBOOK=$(playbook_path $DEVBOX 'linux')
-	fi
-
-	if ! type ansible 2>/dev/null; then
-		echo 'Installing ansible'
-		sudo pacman -S ansible
-		echo 'ansible installed'
-	else
-		echo 'ansible already installed'
-	fi
+if [ -z $PLAYBOOK ]; then
+  export PLAYBOOK=$(playbook_path $DEVBOX)
 fi
+
+echo 'Checking if brew is installed'
+if type brew 2>/dev/null; then
+  echo 'brew already installed'
+else
+  echo 'Installing brew'
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install caskroom/cask/brew-cask
+  echo 'brew installed'
+fi
+
+echo 'Checking if ansible is installed'
+if ! type ansible 2>/dev/null; then
+  echo 'Installing ansible'
+  brew install ansible
+  echo 'ansible installed'
+else
+  echo 'ansible already installed'
+fi
+
 ansible-playbook $PLAYBOOK -i $INVENTORY_FILE $@
 
 unset DEVBOX
