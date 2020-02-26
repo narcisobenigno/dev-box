@@ -23,7 +23,7 @@
         force=yes
 
 - name: install vim plugins
-  command: vim +PluginInstall +qall
+  command: vim +minpac:update() +qall
 
 - name: make vim proc
   command: "make --directory={{ home }}/.vim/bundle/vimproc.vim/"
