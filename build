@@ -22,7 +22,7 @@ prerec_for_mac () {
     brew install caskroom/cask/brew-cask
     echo 'brew installed'
   fi
-  
+
   echo 'Checking if ansible is installed'
   if ! type ansible 2>/dev/null; then
     echo 'Installing ansible'
@@ -31,7 +31,6 @@ prerec_for_mac () {
   else
     echo 'ansible already installed'
   fi
- 
 }
 
 prerec_for_arch () {
@@ -47,7 +46,7 @@ prerec_for_arch () {
     cd -
     echo 'yay installed'
   fi
-  
+
   echo 'Checking if ansible is installed'
   if ! type ansible 2>/dev/null; then
     echo 'Installing ansible'
@@ -84,8 +83,10 @@ export PLAYBOOK="${PLAYBOOK:-$playbook}"
 
 echo $PLAYBOOK
 
+export ANSIBLE_SKIP_TAGS="ruby,java"
 ansible-playbook $PLAYBOOK -i $INVENTORY_FILE $@
 
+unset ANSIBLE_SKIP_TAGS
 unset ROLESDIR
 unset INVENTORY_FILE
 unset PLAYBOOK

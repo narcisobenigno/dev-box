@@ -6,6 +6,8 @@
     private_repo: "{{ lookup('env','PRIVATE_GIT_REPO') }}"
   roles:
     - utilities
+    - { role: ruby, tags: ['ruby'] }
+    - { role: java, tags: ['java'] }
     - pass
     - git
     - tmux

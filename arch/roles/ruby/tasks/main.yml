@@ -3,8 +3,7 @@
 - name: 'Utilities installation'
   yay:
     name: [
-        'python',
-        'jq',
-        'go'
+        'ruby-install',
+        'chruby',
       ]
     state: present

@@ -3,8 +3,7 @@
 - name: 'Utilities installation'
   yay:
     name: [
-        'python',
-        'jq',
-        'go'
+        'sdkman',
+        'intellij-idea-ce'
       ]
     state: present
