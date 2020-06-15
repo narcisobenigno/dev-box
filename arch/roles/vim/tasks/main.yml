@@ -1,0 +1,27 @@
+---
+
+- name: 'Vim installation'
+  yay: name=gvim state=present
+
+- name: 'cabal-install and ag installation'
+  yay:
+    state: present
+    name: ['cabal-install', 'the_silver_searcher', 'ghc']
+
+- name: 'Link .vim dir'
+  file: src="{{ dev_box_dir }}/roles/vim/files"
+        path="{{ home }}/.vim"
+        state=link
+        force=yes
+
+- name: 'Link .vimrc'
+  file: src="{{ home }}/.vim/vimrc"
+        path="{{ home }}/.vimrc"
+        state=link
+        force=yes
+
+- name: install vim plugins
+  command: vim +minpac:update() +qall
+
+- name: make vim proc
+  command: "make --directory={{ home }}/.vim/bundle/vimproc.vim/"

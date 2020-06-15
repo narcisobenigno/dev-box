@@ -1,0 +1,4 @@
+*.DS_Store                                                                                                                                                                              │
+roles/vim/files/pack/minpac/start/*                                                                                                                                                     │
+roles/vim/files/pack/minpac/opt/*                                                                                                                                                       │
+!roles/vim/files/pack/minpac/opt/minpac

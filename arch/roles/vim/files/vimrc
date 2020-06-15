@@ -1,0 +1,119 @@
+" .vimrc
+"
+" Maintainer: Narciso Benigno
+" Created: Sep 22, 2007
+" Notes: Vim 7.0 and beyond
+
+packadd minpac
+
+call minpac#init()
+
+let mapleader=","
+
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+
+call minpac#add('tpope/vim-fugitive')
+
+call minpac#add('vim-scripts/Gundo')
+
+call minpac#add('scrooloose/syntastic')
+
+call minpac#add('tpope/vim-surround')
+
+call minpac#add('tpope/vim-fireplace')
+
+call minpac#add('adelarsq/vim-matchit')
+call minpac#add('tpope/vim-ragtag')
+call minpac#add('michaeljsmith/vim-indent-object')
+call minpac#add('kana/vim-textobj-user')
+call minpac#add('nelstrom/vim-textobj-rubyblock')
+
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('tpope/vim-rails')
+
+call minpac#add('uptech/vim-open-alternate')
+
+call minpac#add('Raimondi/delimitMate')
+call minpac#add('tpope/vim-endwise')
+
+call minpac#add('ervandew/supertab')
+call minpac#add('sickill/vim-pasta')
+
+call minpac#add('tpope/vim-markdown')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('othree/html5.vim')
+
+call minpac#add('isRuslan/vim-es6')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('prettier/vim-prettier', { 'type': 'opt', 'do': '!yarn install' })
+call minpac#add('ternjs/tern_for_vim', { 'type': 'opt', 'do': '!npm install' })
+call minpac#add('kchmck/vim-coffee-script')
+
+call minpac#add('jpo/vim-railscasts-theme')
+
+call minpac#add('tpope/vim-commentary')
+
+call minpac#add('Lokaltog/vim-easymotion')
+
+call minpac#add('MarcWeber/vim-addon-mw-utils')
+call minpac#add('tomtom/tlib_vim')
+call minpac#add('honza/vim-snippets')
+call minpac#add('garbas/vim-snipmate')
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('slim-template/vim-slim')
+call minpac#add('rking/ag.vim')
+call minpac#add('AndrewRadev/splitjoin.vim')
+
+" Golang
+call minpac#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })
+
+" Haskell
+call minpac#add('Shougo/vimproc.vim')
+call minpac#add('raichoo/haskell-vim')
+call minpac#add('enomsg/vim-haskellConcealPlus')
+call minpac#add('eagletmt/neco-ghc')
+call minpac#add('Twinside/vim-hoogle')
+
+call minpac#add('vim-scripts/wombat256.vim')
+call minpac#add('fatih/vim-go')
+
+let b:manifestspath=$HOME."/.vim/manifests"
+for manifest in split(globpath(b:manifestspath, '*.vim'), '\n')
+  exec ":source " . manifest
+endfor
+
+inoremap <M-o>       <Esc>o
+
+inoremap <C-j>       <Down> " Down without esc
+inoremap <C-k>       <Up> " Up without esc
+inoremap <C-h>       <Left> " Left without esc
+inoremap <C-l>       <Right> " Right without esc
+
+let g:ragtag_global_maps = 1
+
+" Searing red very visible cursor
+hi Cursor guibg=red
+
+" Use same color behind concealed unicode characters
+hi clear Conceal
+
+" Don't blink normal mode cursor
+set guicursor=n-v-c:block-Cursor
+set guicursor+=n-v-c:blinkon0
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+  set guioptions-=T
+  set guioptions-=e
+  set guitablabel=%M\ %t
+endif
+
+syntax enable
+set background=dark
+colorscheme wombat256mod
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
