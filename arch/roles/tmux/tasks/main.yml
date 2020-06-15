@@ -1,0 +1,24 @@
+---
+
+- include: ../../utilities/tasks/main.yml
+
+- name: 'Tmux installation'
+  yay: name=tmux state=present
+
+- name: 'Link tmux dir'
+  file: src="{{ dev_box_dir }}/roles/tmux/files"
+        path="{{ home }}/.tmux"
+        state=link
+        force=yes
+
+- name: 'Link .tmux.conf'
+  file: src="{{ home }}/.tmux/tmux.conf"
+        path="{{ home }}/.tmux.conf"
+        state=link
+        force=yes
+
+- name: 'Install powerline-status'
+  pip: name=powerline-status extra_args='--user --install-option="--prefix="'
+
+- git: repo=https://github.com/tmux-plugins/tpm.git
+      dest="{{ home }}/.tmux/plugins/tpm"

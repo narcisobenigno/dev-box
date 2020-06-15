@@ -2,8 +2,9 @@
   connection: local
   vars:
     home: "{{ lookup('env','HOME') }}"
-    dev_box_dir: "{{ lookup('env','DEVBOX') }}"
+    dev_box_dir: "{{ lookup('env','ROLESDIR') }}"
     private_repo: "{{ lookup('env','PRIVATE_GIT_REPO') }}"
   roles:
     - pass
     - git
+    - tmux

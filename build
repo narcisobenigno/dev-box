@@ -2,11 +2,14 @@
 
 set -e
 
-playbook_path () {
-  devbox=$1
-  so_name=$2
+role_path () {
+  echo "$HOME/Dropbox/dev-box/$1"
+}
 
-  echo "$devbox/$so_name/playbook.yml"
+playbook_path () {
+  rolepath=$1
+
+  echo "$rolepath/playbook.yml"
 }
 
 prerec_for_mac () {
@@ -57,21 +60,24 @@ prerec_for_arch () {
 
 [ -z "$PRIVATE_GIT_REPO" ] && echo 'Set PRIVATE_GIT_REPO variable' && exit 1
 
-if [ -z $DEVBOX ]; then
-  export DEVBOX="$HOME/Dropbox/dev-box"
-fi
-if [ -z $INVENTORY_FILE ]; then
-  export INVENTORY_FILE="$DEVBOX/hosts"
-fi
-
 playbook=""
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -z $ROLESDIR ]; then
+    export ROLESDIR="$(role_path 'mac')"
+  fi
   prerec_for_mac
-  playbook="$(playbook_path $DEVBOX 'mac')"
 else
+  if [ -z $ROLESDIR ]; then
+    export ROLESDIR="$(role_path 'arch')"
+  fi
   prerec_for_arch
-  playbook="$(playbook_path $DEVBOX 'arch')"
+fi
+
+playbook="$(playbook_path $ROLESDIR)"
+
+if [ -z $INVENTORY_FILE ]; then
+  export INVENTORY_FILE="$ROLESDIR/hosts"
 fi
 
 export PLAYBOOK="${PLAYBOOK:-$playbook}"
@@ -80,6 +86,6 @@ echo $PLAYBOOK
 
 ansible-playbook $PLAYBOOK -i $INVENTORY_FILE $@
 
-unset DEVBOX
+unset ROLESDIR
 unset INVENTORY_FILE
 unset PLAYBOOK

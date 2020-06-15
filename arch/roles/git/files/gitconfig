@@ -29,7 +29,7 @@
 [rerere]
   enabled = true
 [core]
-  editor = /usr/local/bin/vim
+  editor = /usr/bin/vim
 [merge]
   ff = false
   tool = vimdiff

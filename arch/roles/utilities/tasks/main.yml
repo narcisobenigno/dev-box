@@ -1,0 +1,13 @@
+---
+
+- name: 'Utilities installation'
+  yay:
+    name: [
+        'ruby-install',
+        'chruby',
+        'python',
+        'sdkman',
+        'jq',
+        'go'
+      ]
+    state: present
