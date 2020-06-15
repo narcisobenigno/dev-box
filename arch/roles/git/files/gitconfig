@@ -1,0 +1,41 @@
+[user]
+	name = Narciso Benigno
+	email = nbenigno@thoughtworks.com
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+  pruneo = remote prune origin
+  unstage = reset HEAD --
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  show = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[log]
+  decorate = full
+[push]
+  default = simple
+[rerere]
+  enabled = true
+[core]
+  editor = /usr/local/bin/vim
+[merge]
+  ff = false
+  tool = vimdiff
+[pull]
+  rebase = true
+[grep]
+  fullname = true
+[rebase]
+  autostash = true
