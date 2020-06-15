@@ -1,0 +1,14 @@
+---
+
+- name: 'Install pass'
+  yay: name=pass state=present
+
+- name: 'retrieve configurations'
+  git: repo="{{ private_repo }}/.password-store.git"
+       dest={{ home }}/.password-store
+       accept_hostkey=yes
+
+- name: 'retrieve security informations'
+  git: repo={{ private_repo }}/.gnupg.git
+       dest={{ home }}/.gnupg
+       accept_hostkey=yes

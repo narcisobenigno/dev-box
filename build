@@ -2,9 +2,57 @@
 
 set -e
 
-function playbook_path () {
+playbook_path () {
   devbox=$1
-  echo "$devbox/playbook.yml"
+  so_name=$2
+
+  echo "$devbox/$so_name/playbook.yml"
+}
+
+prerec_for_mac () {
+  echo 'Checking if brew is installed'
+  if type brew 2>/dev/null; then
+    echo 'brew already installed'
+  else
+    echo 'Installing brew'
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install caskroom/cask/brew-cask
+    echo 'brew installed'
+  fi
+  
+  echo 'Checking if ansible is installed'
+  if ! type ansible 2>/dev/null; then
+    echo 'Installing ansible'
+    brew install ansible
+    echo 'ansible installed'
+  else
+    echo 'ansible already installed'
+  fi
+ 
+}
+
+prerec_for_arch () {
+  echo 'Checking if yay is installed'
+  if type yay 2>/dev/null; then
+    echo 'yay already installed'
+  else
+    echo 'Installing yay'
+    cd /tmp
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd -
+    echo 'yay installed'
+  fi
+  
+  echo 'Checking if ansible is installed'
+  if ! type ansible 2>/dev/null; then
+    echo 'Installing ansible'
+    yes | yay -S ansible
+    echo 'ansible installed'
+  else
+    echo 'ansible already installed'
+  fi
 }
 
 [ -z "$PRIVATE_GIT_REPO" ] && echo 'Set PRIVATE_GIT_REPO variable' && exit 1
@@ -16,28 +64,19 @@ if [ -z $INVENTORY_FILE ]; then
   export INVENTORY_FILE="$DEVBOX/hosts"
 fi
 
-if [ -z $PLAYBOOK ]; then
-  export PLAYBOOK=$(playbook_path $DEVBOX)
+playbook=""
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  prerec_for_mac
+  playbook="$(playbook_path $DEVBOX 'mac')"
+else
+  prerec_for_arch
+  playbook="$(playbook_path $DEVBOX 'arch')"
 fi
 
-echo 'Checking if brew is installed'
-if type brew 2>/dev/null; then
-  echo 'brew already installed'
-else
-  echo 'Installing brew'
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install caskroom/cask/brew-cask
-  echo 'brew installed'
-fi
+export PLAYBOOK="${PLAYBOOK:-$playbook}"
 
-echo 'Checking if ansible is installed'
-if ! type ansible 2>/dev/null; then
-  echo 'Installing ansible'
-  brew install ansible
-  echo 'ansible installed'
-else
-  echo 'ansible already installed'
-fi
+echo $PLAYBOOK
 
 ansible-playbook $PLAYBOOK -i $INVENTORY_FILE $@
 
