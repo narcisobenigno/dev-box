@@ -12,3 +12,6 @@
   git: repo={{ private_repo }}/.gnupg.git
        dest={{ home }}/.gnupg
        accept_hostkey=yes
+
+- name: 'add firefox passff-host'
+  yay: name=passff-host state=present
