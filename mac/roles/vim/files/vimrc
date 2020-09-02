@@ -77,7 +77,7 @@ call minpac#add('enomsg/vim-haskellConcealPlus')
 call minpac#add('eagletmt/neco-ghc')
 call minpac#add('Twinside/vim-hoogle')
 
-call minpac#add('vim-scripts/wombat256.vim')
+call minpac#add('pgavlin/pulumi.vim')
 call minpac#add('fatih/vim-go')
 
 let b:manifestspath=$HOME."/.vim/manifests"
@@ -113,7 +113,10 @@ endif
 
 syntax enable
 set background=dark
-colorscheme wombat256mod
+colorscheme pulumi
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+
+filetype plugin on
+syntax on

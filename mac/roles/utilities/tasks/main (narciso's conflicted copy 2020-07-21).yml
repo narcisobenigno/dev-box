@@ -1,7 +1,7 @@
 ---
 
 - name: 'Utilities installation'
-  homebrew:
+  homebrew_cask:
     name: [
         'libffi',
         'gdbm',

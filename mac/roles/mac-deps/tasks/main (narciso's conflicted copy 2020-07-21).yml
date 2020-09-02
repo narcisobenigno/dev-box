@@ -1,0 +1,11 @@
+---
+
+- name: 'Mac App installations'
+  homebrew_cask:
+    name: [ 'alfred', 'caffeine', 'slack', 'evernote', 'skype', 'appcleaner', 'firefox', 'telegram', 'spotify' ]
+    state: present
+
+- name: 'Mac App deprecateds'
+  homebrew_cask:
+    name: [ 'sequel-pro', 'dbeaver-community' ]
+    state: absent
