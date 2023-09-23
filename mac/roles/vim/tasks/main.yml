@@ -1,0 +1,17 @@
+---
+
+- name: 'Vim installation'
+  homebrew: name=nvim
+            state=present
+
+- name: 'Create nvim config dir'
+  file: path="{{ home }}/.config"
+        state=directory
+        recurse=yes
+
+- name: 'Link vim dir'
+  file: src="{{ dev_box_dir }}/roles/vim/files/config/nvim"
+        path="{{ home }}/.config/nvim"
+        state=link
+        force=yes
+

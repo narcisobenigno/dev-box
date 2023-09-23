@@ -1,0 +1,21 @@
+---
+
+- name: 'Git installation'
+  homebrew: name=git state=present
+
+- name: 'Git installation'
+  homebrew: name=git-delta state=present
+
+- name: 'Link git dir'
+  file: src="{{ dev_box_dir }}/roles/git/files"
+        path="{{ home }}/.git"
+        state=link
+        force=yes
+
+- name: 'Link gitconfig'
+  file: src="{{ home }}/.git/gitconfig"
+        path="{{ home }}/.gitconfig"
+        state=link
+        force=yes
+
+- debug: msg="--Please set the GIT_COMMITTER_EMAIL and GIT_AUTHOR_EMAIL variable--"

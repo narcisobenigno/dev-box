@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -e
+
+role_path () {
+  echo "$HOME/Dropbox/dev-box/$1"
+}
+
+playbook_path () {
+  rolepath=$1
+
+  echo "$rolepath/playbook.yml"
+}
+
+prerec_for_mac () {
+  echo 'Checking if brew is installed'
+  if type brew 2>/dev/null; then
+    echo 'brew already installed'
+  else
+    echo 'Installing brew'
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo 'brew installed'
+  fi
+
+  echo 'Checking if ansible is installed'
+  if ! type ansible 2>/dev/null; then
+    echo 'Installing ansible'
+    brew install ansible
+    echo 'ansible installed'
+  else
+    echo 'ansible already installed'
+  fi
+}
+
+playbook=""
+
+if [ -z $ROLESDIR ]; then
+  export ROLESDIR="$(role_path 'mac')"
+fi
+prerec_for_mac
+
+playbook="$(playbook_path $ROLESDIR)"
+
+if [ -z $INVENTORY_FILE ]; then
+  export INVENTORY_FILE="$ROLESDIR/hosts"
+fi
+
+export PLAYBOOK="${PLAYBOOK:-$playbook}"
+
+echo $PLAYBOOK
+
+export ANSIBLE_SKIP_TAGS="ruby,java"
+ansible-playbook $PLAYBOOK -i $INVENTORY_FILE $@
+
+unset ANSIBLE_SKIP_TAGS
+unset ROLESDIR
+unset INVENTORY_FILE
+unset PLAYBOOK

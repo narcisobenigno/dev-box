@@ -1,0 +1,10 @@
+---
+
+- name: 'Utilities installation'
+  homebrew:
+    name: [
+        'readline',
+        'wget',
+        'jq'
+      ]
+    state: present
