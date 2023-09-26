@@ -8,7 +8,13 @@
 - git: repo=https://github.com/gpakosz/.tmux.git
       dest="{{ home }}/.tmux"
 
-- name: 'Link tmux dir'
+- name: 'Link tmux.conf'
+  file: src="{{ home }}/.tmux/.tmux.conf"
+        path="{{ home }}/.tmux.conf"
+        state=link
+        force=yes
+
+- name: 'Link tmux.conf.local'
   file: src="{{ dev_box_dir }}/roles/tmux/files/tmux.conf.local"
         path="{{ home }}/.tmux.conf.local"
         state=link
