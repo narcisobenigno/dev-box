@@ -1,0 +1,16 @@
+- name: 'Create kitty conf dir'
+  file: src="{{ home }}/.config/kitty"
+        state=directory
+        recurse=true
+
+- name: 'Link kitty.conf'
+  file: src="{{ dev_box_dir }}/roles/kitty/files/kitty.conf"
+        path="{{ home }}/.config/kitty/kitty.conf"
+        state=link
+        force=yes
+
+- name: 'Link current-theme.conf'
+  file: src="{{ dev_box_dir }}/roles/kitty/files/current-theme.conf"
+        path="{{ home }}/.config/kitty/current-theme.conf"
+        state=link
+        force=yes
