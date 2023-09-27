@@ -1,16 +1,13 @@
 - name: 'Create kitty conf dir'
-  file: src="{{ home }}/.config/kitty"
+  file: path="{{ home }}/.config"
         state=directory
         recurse=true
 
 - name: 'Link kitty.conf'
-  file: src="{{ dev_box_dir }}/roles/kitty/files/kitty.conf"
-        path="{{ home }}/.config/kitty/kitty.conf"
+  file: src="{{ dev_box_dir }}/roles/kitty/files"
+        path="{{ home }}/.config/kitty"
         state=link
         force=yes
 
-- name: 'Link current-theme.conf'
-  file: src="{{ dev_box_dir }}/roles/kitty/files/current-theme.conf"
-        path="{{ home }}/.config/kitty/current-theme.conf"
-        state=link
-        force=yes
+- name: 'Manual instalation instruction'
+  debug: msg='please, install kitty package manually> brew install kitty'
