@@ -10,7 +10,7 @@
         recurse=yes
 
 - name: 'Link vim dir'
-  file: src="{{ dev_box_dir }}/roles/vim/files/config/nvim"
+  file: src="{{ dev_box_dir }}/roles/vim/files"
         path="{{ home }}/.config/nvim"
         state=link
         force=yes
