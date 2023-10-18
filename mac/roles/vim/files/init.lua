@@ -19,7 +19,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 -- show tralng chars
-set.listchars = "eol:$,tab:>-,trail:~,extends:>,precedes:<"
+set.listchars = "eol:$,space:.,tab:»·,trail:~,extends:>,precedes:<"
 set.list = true
 
 -- tabsize
