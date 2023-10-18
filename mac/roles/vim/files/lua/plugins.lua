@@ -19,4 +19,6 @@ bootstrap_pckr()
 require('pckr').add{
 	'junegunn/fzf';
 	'junegunn/fzf.vim';
+
+	'rose-pine/neovim';
 }
