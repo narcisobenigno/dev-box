@@ -20,5 +20,7 @@ require('pckr').add{
 	'junegunn/fzf';
 	'junegunn/fzf.vim';
 
+	'tpope/vim-surround';
+
 	'rose-pine/neovim';
 }
