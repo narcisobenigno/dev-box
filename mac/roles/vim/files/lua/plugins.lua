@@ -23,4 +23,6 @@ require('pckr').add{
 	'tpope/vim-surround';
 
 	'rose-pine/neovim';
+
+	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 }

@@ -14,13 +14,20 @@ require('rose-pine').setup({
 	variant = 'dawn'
 })
 vim.cmd.colorscheme("rose-pine")
+require'nvim-treesitter.configs'.setup {
+	-- A list of parser names, or "all" (the five listed parsers should always be installed)
+	ensure_installed = { "javascript", "lua", "vim", "vimdoc", "query", "rust", "json", "yaml" },
+	sync_install = false,
+	auto_install = true,
+
+
+	highlight = {
+		enable = true,
+	},
+}
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-
--- show tralng chars
-set.listchars = "eol:$,space:.,tab:»·,trail:~,extends:>,precedes:<"
-set.list = true
 
 -- tabsize
 set.tabstop = 4
