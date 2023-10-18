@@ -4,6 +4,13 @@
   homebrew: name=nvim
             state=present
 
+- name: 'Exuberant ctags installation'
+  homebrew: name=ctags
+            state=present
+
+- name: 'configure your ctags'
+  debug: msg='please run $ alias ctags="`brew --prefix`/bin/ctags"; alias ctags >> ~/.bashrc'
+
 - name: 'Create nvim config dir'
   file: path="{{ home }}/.config"
         state=directory
