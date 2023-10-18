@@ -16,7 +16,19 @@ require('rose-pine').setup({
 vim.cmd.colorscheme("rose-pine")
 require'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "javascript", "lua", "vim", "vimdoc", "query", "rust", "json", "yaml" },
+	ensure_installed = { 
+		'javascript',
+		'lua',
+		'vim',
+		'vimdoc',
+		'query',
+		'rust',
+		'json',
+		'yaml',
+		'gitcommit',
+		'git_rebase',
+		'diff',
+	},
 	sync_install = false,
 	auto_install = true,
 
