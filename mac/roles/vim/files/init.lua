@@ -8,6 +8,7 @@ vim.cmd "syntax enable"
 vim.cmd "filetype plugin on"
 
 vim.g.mapleader = ","
+set.swapfile = false
 
 -- Color schema
 require('rose-pine').setup({
@@ -17,23 +18,39 @@ vim.cmd.colorscheme("rose-pine")
 require'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = { 
+		'bash',
+		'diff',
+		'dockerfile',
+		'git_rebase',
+		'git_rebase',
+		'gitattributes',
+		'gitcommit',
+		'gitignore',
+		'go',
+		'gomod',
+		'html',
 		'javascript',
+		'json',
 		'lua',
+		'make',
+		'markdown',
+		'markdown_inline',
+		'query',
+		'regex',
+		'rust',
+		'terraform',
 		'vim',
 		'vimdoc',
-		'query',
-		'rust',
-		'json',
 		'yaml',
-		'gitcommit',
-		'git_rebase',
-		'diff',
 	},
 	sync_install = false,
 	auto_install = true,
 
 
 	highlight = {
+		enable = true,
+	},
+	indent = {
 		enable = true,
 	},
 }
