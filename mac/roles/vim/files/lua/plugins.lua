@@ -22,7 +22,12 @@ require('pckr').add{
 
 	'tpope/vim-surround';
 
-	'rose-pine/neovim';
+	{
+		'projekt0n/github-nvim-theme',
+		config = function()
+			vim.cmd.colorscheme('github_light')
+		end
+	};
 
 	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 }

@@ -11,10 +11,6 @@ vim.g.mapleader = ","
 set.swapfile = false
 
 -- Color schema
-require('rose-pine').setup({
-	variant = 'dawn'
-})
-vim.cmd.colorscheme("rose-pine")
 require'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = { 
