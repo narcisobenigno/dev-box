@@ -1,7 +1,5 @@
 ---
 
-- include: ../../utilities/tasks/main.yml
-
 - name: 'Tmux installation'
   homebrew: name=tmux state=present
 

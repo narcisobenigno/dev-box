@@ -22,6 +22,9 @@ require('pckr').add{
 
 	'tpope/vim-surround';
 
+	'stevearc/oil.nvim';
+	'nvim-tree/nvim-web-devicons';
+
 	{
 		'projekt0n/github-nvim-theme',
 		config = function()
@@ -30,4 +33,5 @@ require('pckr').add{
 	};
 
 	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
+
 }

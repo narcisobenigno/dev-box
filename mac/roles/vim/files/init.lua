@@ -1,4 +1,5 @@
 require "plugins"
+require "auto-pair"
 
 local set = vim.opt
 
@@ -10,8 +11,33 @@ vim.cmd "filetype plugin on"
 vim.g.mapleader = ","
 set.swapfile = false
 
+vim.wo.number = true
+vim.wo.relativenumber = true
+
+-- tabsize
+set.tabstop = 4
+set.shiftwidth = 4
+set.expandtab = false
+
+-- buffer hidden
+set.hidden = true
+
+
+-- Buffers
+vim.keymap.set("n", "<leader>b", vim.cmd.Buffers)
+vim.keymap.set("n", "<leader>f", vim.cmd.Files)
+vim.keymap.set("n", "<leader>g", vim.cmd.GFiles)
+vim.keymap.set("n", "<leader>gs", ":GFiles?<CR>")
+vim.keymap.set("n", "<leader>/", vim.cmd.Ag)
+vim.keymap.set("n", "<leader>h", vim.cmd.History)
+vim.keymap.set("n", "<leader>h/", ":History/<CR>")
+vim.keymap.set("n", "<leader>h:", ":History:<CR>")
+
+-- Tree
+vim.keymap.set("n", "<leader>t", vim.cmd.Oil, { desc = "File tree" })
+
 -- Color schema
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = { 
 		'bash',
@@ -51,24 +77,5 @@ require'nvim-treesitter.configs'.setup {
 	},
 }
 
-vim.wo.number = true
-vim.wo.relativenumber = true
-
--- tabsize
-set.tabstop = 4
-set.shiftwidth = 4
-set.expandtab = false
-
--- buffer hidden
-set.hidden = true
-
--- Buffers
-vim.keymap.set("n", "<leader>b", vim.cmd.Buffers)
-vim.keymap.set("n", "<leader>f", vim.cmd.Files)
-vim.keymap.set("n", "<leader>g", vim.cmd.GFiles)
-vim.keymap.set("n", "<leader>gs", ":GFiles?<CR>")
-vim.keymap.set("n", "<leader>/", vim.cmd.Ag)
-vim.keymap.set("n", "<leader>h", vim.cmd.History)
-vim.keymap.set("n", "<leader>h/", ":History/<CR>")
-vim.keymap.set("n", "<leader>h:", ":History:<CR>")
+require('oil').setup() 
 
