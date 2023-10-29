@@ -34,4 +34,9 @@ require('pckr').add{
 
 	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 
+	{
+		"windwp/nvim-autopairs",
+		config = function() require("nvim-autopairs").setup {} end
+	};
+
 }

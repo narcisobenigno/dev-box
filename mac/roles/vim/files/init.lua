@@ -1,5 +1,4 @@
 require "plugins"
-require "auto-pair"
 
 local set = vim.opt
 
