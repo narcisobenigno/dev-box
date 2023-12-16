@@ -36,7 +36,24 @@ require('pckr').add{
 
 	{
 		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
+		config = function() require("nvim-autopairs").setup {} end,
 	};
 
+	{
+		"ray-x/go.nvim",
+		requires = {
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+			vim.g.go_fmt_command = 1
+		end,
+		--event = {"CmdlineEnter"},
+		--ft = {"go", 'gomod'},
+		run = function() 
+			require("go.install").update_all_sync() 
+		end
+	};
 }

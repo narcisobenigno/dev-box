@@ -1,6 +1,7 @@
 require "plugins"
 
 local set = vim.opt
+local keymap = vim.keymap
 
 set.compatible = false
 
@@ -21,19 +22,23 @@ set.expandtab = false
 -- buffer hidden
 set.hidden = true
 
-
 -- Buffers
-vim.keymap.set("n", "<leader>b", vim.cmd.Buffers)
-vim.keymap.set("n", "<leader>f", vim.cmd.Files)
-vim.keymap.set("n", "<leader>g", vim.cmd.GFiles)
-vim.keymap.set("n", "<leader>gs", ":GFiles?<CR>")
-vim.keymap.set("n", "<leader>/", vim.cmd.Ag)
-vim.keymap.set("n", "<leader>h", vim.cmd.History)
-vim.keymap.set("n", "<leader>h/", ":History/<CR>")
-vim.keymap.set("n", "<leader>h:", ":History:<CR>")
+keymap.set("n", "<leader>b", vim.cmd.Buffers)
+keymap.set("n", "<leader>f", vim.cmd.Files)
+keymap.set("n", "<leader>g", vim.cmd.GFiles)
+keymap.set("n", "<leader>gs", ":GFiles?<CR>")
+keymap.set("n", "<leader>/", vim.cmd.Ag)
+keymap.set("n", "<leader>h", vim.cmd.History)
+keymap.set("n", "<leader>h/", ":History/<CR>")
+keymap.set("n", "<leader>h:", ":History:<CR>")
+
+keymap.set("n", "<leader><leader>", ":e $MYVIMRC<CR>")
+
+-- Replace selected text
+keymap.set("n", "<C-r>", "hy:%s/<C-r>h//gc<left><left><left>", {silent = true})
 
 -- Tree
-vim.keymap.set("n", "<leader>t", vim.cmd.Oil, { desc = "File tree" })
+keymap.set("n", "<leader>t", vim.cmd.Oil, { desc = "File tree" })
 
 -- Color schema
 require 'nvim-treesitter.configs'.setup {
