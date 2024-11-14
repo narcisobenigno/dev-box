@@ -17,6 +17,8 @@ require('lazy').setup({
 
 	'tpope/vim-surround',
 
+	'jiangmiao/auto-pairs',
+
 	'stevearc/oil.nvim',
 	'nvim-tree/nvim-web-devicons',
 
