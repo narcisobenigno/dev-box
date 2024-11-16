@@ -2,6 +2,7 @@ require "plugins"
 
 local set = vim.opt
 local keymap = vim.keymap
+local autocmd = vim.api.nvim_create_autocmd
 
 set.compatible = false
 
@@ -14,6 +15,11 @@ set.swapfile = false
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+autocmd('BufWritePre', {
+  pattern = '',
+  command = ":%s/\\s\\+$//e"
+})
+
 -- tabsize
 set.tabstop = 4
 set.shiftwidth = 4
@@ -21,6 +27,9 @@ set.expandtab = false
 
 -- buffer hidden
 set.hidden = true
+
+set.listchars = "eol:$,tab:>-,trail:~,extends:>,precedes:<"
+set.list = true
 
 -- Buffers
 keymap.set("n", "<leader>b", vim.cmd.Buffers)
