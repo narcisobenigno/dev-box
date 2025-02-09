@@ -1,5 +1,3 @@
-require "plugins"
-
 local set = vim.opt
 local keymap = vim.keymap
 local autocmd = vim.api.nvim_create_autocmd
@@ -31,6 +29,8 @@ set.hidden = true
 set.listchars = "eol:$,tab:>-,trail:~,extends:>,precedes:<"
 set.list = true
 
+require "config.lazy"
+
 -- Buffers
 keymap.set("n", "<leader>b", vim.cmd.Buffers)
 keymap.set("n", "<leader>f", vim.cmd.Files)
@@ -52,7 +52,7 @@ keymap.set("n", "<leader>t", vim.cmd.Oil, { desc = "File tree" })
 -- Color schema
 require 'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { 
+	ensure_installed = {
 		'bash',
 		'diff',
 		'dockerfile',
@@ -65,6 +65,7 @@ require 'nvim-treesitter.configs'.setup {
 		'gomod',
 		'html',
 		'javascript',
+		'typescript',
 		'json',
 		'lua',
 		'make',
@@ -90,5 +91,5 @@ require 'nvim-treesitter.configs'.setup {
 	},
 }
 
-require('oil').setup() 
+require('oil').setup()
 
