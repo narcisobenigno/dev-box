@@ -93,3 +93,34 @@ require 'nvim-treesitter.configs'.setup {
 
 require('oil').setup()
 
+-- Configure LSP
+local lspconfig = require('lspconfig')
+
+-- Start tsserver (ts_ls) for TypeScript/JavaScript
+lspconfig.ts_ls.setup({})
+
+-- Autocompletion (nvim-cmp)
+local cmp = require('cmp')
+cmp.setup({
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' }, -- LSP completions
+  }),
+  mapping = cmp.mapping.preset.insert({
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+})
+
+-- Keymaps for LSP actions
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.name == 'tsserver' then
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = true })
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true })
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = true })
+      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = true })
+    end
+  end,
+})
+
