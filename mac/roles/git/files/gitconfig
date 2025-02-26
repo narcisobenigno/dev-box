@@ -1,9 +1,9 @@
+[user]
+	name = Narciso
+
 [include]
   path = ~/Documents/professional/.gitconfig
   path = ~/Documents/personal/.gitconfig
-
-[user]
-  name = Narciso Benigno
 
 [alias]
   co = checkout
