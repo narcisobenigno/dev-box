@@ -9,18 +9,13 @@
       ]
     state: present
 
-- name: 'tap nerd fonts'
-  homebrew_tap:
-    name: homebrew/cask-fonts
-
 - name: 'install nerd fonts'
   homebrew_cask:
     name: [
-        'font-3270-nerd-font',
+	'font-3270-nerd-font',
         'font-agave-nerd-font',
         'font-anonymice-nerd-font',
         'font-arimo-nerd-font',
-        'font-aurulent-nerd-font',
         'font-aurulent-sans-mono-nerd-font',
         'font-bigblue-terminal-nerd-font',
         'font-bitstream-vera-sans-mono-nerd-font',

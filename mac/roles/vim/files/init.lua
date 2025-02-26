@@ -97,7 +97,20 @@ require('oil').setup()
 local lspconfig = require('lspconfig')
 
 -- Start tsserver (ts_ls) for TypeScript/JavaScript
-lspconfig.ts_ls.setup({})
+lspconfig.ts_ls.setup({
+	cmd = { 'typescript-language-server', '--stdio' }, -- Explicitly set the command
+	on_attach = function(client, bufnr)
+		-- Keybindings for LSP features
+		local opts = { buffer = bufnr, remap = false }
+
+		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- Go to definition
+		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- Show documentation
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts) -- Rename symbol
+		vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- Code actions
+		vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts) -- Show diagnostics
+	end,
+})
 
 -- Autocompletion (nvim-cmp)
 local cmp = require('cmp')
