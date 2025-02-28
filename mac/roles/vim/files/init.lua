@@ -51,7 +51,6 @@ keymap.set("n", "<leader>t", vim.cmd.Oil, { desc = "File tree" })
 
 -- Color schema
 require 'nvim-treesitter.configs'.setup {
-	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = {
 		'bash',
 		'diff',
