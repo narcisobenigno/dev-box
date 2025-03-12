@@ -90,7 +90,11 @@ require 'nvim-treesitter.configs'.setup {
 	},
 }
 
-require('oil').setup()
+require('oil').setup({
+	view_options = {
+		show_hidden = true,
+	},
+})
 
 -- Configure LSP
 local lspconfig = require('lspconfig')
@@ -131,6 +135,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = true })
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true })
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = true })
+      vim.keymap.set('n', '<leader>d]', vim.lsp.diagnostic.goto_next, { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>d[', vim.lsp.diagnostic.goto_previous, { noremap = true, silent = true })
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = true })
     end
   end,
