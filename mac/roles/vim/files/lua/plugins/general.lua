@@ -20,9 +20,6 @@ return {
 			vim.cmd.colorscheme('github_light')
 		end
 	},
-
-	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-
 	{
 		"windwp/nvim-autopairs",
 		config = function() require("nvim-autopairs").setup {} end,

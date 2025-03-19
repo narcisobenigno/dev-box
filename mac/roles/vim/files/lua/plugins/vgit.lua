@@ -6,4 +6,7 @@ return {
 		event = 'VimEnter',
 		config = function() require("vgit").setup() end,
 	},
+	{
+		'ruanyl/vim-gh-line',
+	}
 }
