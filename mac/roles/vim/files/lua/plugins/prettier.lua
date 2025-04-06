@@ -1,13 +1,35 @@
 return {
   {
-    "prettier/vim-prettier",
-    ft = { "javascript", "typescript", "css", "html", "json", "yaml", "markdown" }, -- File types to enable prettier
-    build = "pnpm install", -- Install Prettier locally if not already installed
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      -- Configure vim-prettier
-      vim.g["prettier#autoformat"] = 1 -- Enable auto-formatting on save
-      vim.g["prettier#quickfix_enabled"] = 1 -- Disable quickfix window
+      require("conform").setup({
+        formatters_by_ft = {
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
+          css = { "prettier" },
+          html = { "prettier" },
+          json = { "prettier" },
+          yaml = { "prettier" },
+          markdown = { "prettier" },
+          graphql = { "prettier" },
+          lua = { "stylua" }, -- Example with another formatter
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        },
+      })
     end,
   },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "prettier",
+      },
+    },
+  },
 }
-

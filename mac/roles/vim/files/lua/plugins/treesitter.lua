@@ -11,6 +11,9 @@ return {
 					html = {"html", "hbs"},
 					javascript = {"javascript", "javascriptreact", "typescript", "typescriptreact", "hbs", "js"},
 				},
+				fold = {
+                    enable = true,
+                },
 			})
 		end,
 	},

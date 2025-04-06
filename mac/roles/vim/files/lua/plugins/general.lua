@@ -9,8 +9,6 @@ return {
 
 	'tpope/vim-surround',
 
-	'jiangmiao/auto-pairs',
-
 	'stevearc/oil.nvim',
 	'nvim-tree/nvim-web-devicons',
 
@@ -22,6 +20,7 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end,
+		event = "InsertEnter",
+		config = true,
 	},
 }
