@@ -96,24 +96,15 @@ require('oil').setup({
 	},
 })
 
--- Configure LSP
-local lspconfig = require('lspconfig')
-
--- Start tsserver (ts_ls) for TypeScript/JavaScript
-lspconfig.ts_ls.setup({
-	cmd = { 'typescript-language-server', '--stdio' }, -- Explicitly set the command
-	on_attach = function(client, bufnr)
-		-- Keybindings for LSP features
-		local opts = { buffer = bufnr, remap = false }
-
-		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- Go to definition
-		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- Show documentation
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts) -- Rename symbol
-		vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- Code actions
-		vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts) -- Show diagnostics
-	end,
+-- Configure LSP using the new vim.lsp.config API
+vim.lsp.config('ts_ls', {
+	cmd = { 'typescript-language-server', '--stdio' },
+	filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+	root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
 })
+
+-- Enable ts_ls automatically
+vim.lsp.enable('ts_ls')
 
 -- Autocompletion (nvim-cmp)
 local cmp = require('cmp')
@@ -131,13 +122,23 @@ cmp.setup({
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.name == 'tsserver' then
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = true })
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true })
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = true })
-      vim.keymap.set('n', '<leader>d]', vim.lsp.diagnostic.goto_next, { noremap = true, silent = true })
-      vim.keymap.set('n', '<leader>d[', vim.lsp.diagnostic.goto_previous, { noremap = true, silent = true })
-      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = true })
+    if client.name == 'ts_ls' then
+      local opts = { buffer = args.buf }
+      -- Go to definition
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      -- Show documentation
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+      -- Go to references
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+      -- Rename symbol
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      -- Code actions
+      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+      -- Show diagnostics
+      vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
+      -- Navigate diagnostics
+      vim.keymap.set('n', '<leader>d]', vim.diagnostic.goto_next, opts)
+      vim.keymap.set('n', '<leader>d[', vim.diagnostic.goto_prev, opts)
     end
   end,
 })
